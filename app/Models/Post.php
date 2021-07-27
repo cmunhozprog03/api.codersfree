@@ -15,5 +15,26 @@ class Post extends Model
 
     protected $guarded = ['id'];
 
+    // Reverce One-<many
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    // Many->many
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
+    //MorphMany
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 
 }
