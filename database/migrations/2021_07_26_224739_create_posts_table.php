@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
 
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->unique();
 
             $table->text('extract');
             $table->longText('body');
