@@ -24,7 +24,7 @@ class PostFactory extends Factory
      */
     public function definition()
     {
-        $name  = $this->faker->unique()->word(50);
+        $name  = $this->faker->unique()->word(20);
         return [
             'name' => $name,
             'slug' => Str::slug($name),
