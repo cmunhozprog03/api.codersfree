@@ -14,7 +14,7 @@ class Post extends Model
     const PUBLICADO = 2;
 
 
-    protected $guarded = ['id'];
+    protected $fillable = ['name', 'slug', 'extract', 'body', 'status','category_id', 'user_id'];
 
     // Reverce One-<many
     public function user()
