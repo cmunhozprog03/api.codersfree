@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CategoryResource extends JsonResource
+class PostResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,7 +18,11 @@ class CategoryResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'slug' => $this->slug,
-            'posts' => PostResource::collection($this->whenLoaded('posts'))
+            'extract' => $this->extract,
+            'body' => $this->body,
+            'status' => $this->status == 1 ? 'BORRADOR' : 'PUBLICADO',
+            'users' => UserResource::make($this->whenLoaded('user')),
+            'category' => CategoryResource::make($this->whenLoaded('category'))
         ];
     }
 }
