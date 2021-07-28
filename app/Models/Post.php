@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\apiTrait;
 
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, apiTrait;
 
     const BORRADOR = 1;
     const PUBLICADO = 2;
